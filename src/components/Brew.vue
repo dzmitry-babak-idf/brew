@@ -10,7 +10,9 @@
             <div class="col-6">
                 <BrewList :brews="brews"/>
             </div>
-            <div class="col-6"><h2 class="text-center">right</h2></div>
+            <div class="col-6">
+                <BrewMap/>
+            </div>
         </div>
         <!-- /.row -->
     </div>
@@ -20,10 +22,11 @@
 <script>
     import axios from 'axios'
     import BrewList from "./BrewList";
+    import BrewMap from "./BrewMap";
     //https://api.openbrewerydb.org/breweries
     export default {
         name: 'Brew',
-        components: {BrewList},
+        components: {BrewMap, BrewList},
         data: function () {
             return {
                 brews: []
