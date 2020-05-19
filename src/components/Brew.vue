@@ -1,7 +1,5 @@
 <template>
-    <div class="hello">
-        <h1>Welcome to my Brew app!!!</h1>
-    </div>
+
 </template>
 
 <script>
