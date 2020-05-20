@@ -1,9 +1,12 @@
 <template>
     <div class="card brew-list">
         <ul class="list-group list-group-flush">
-            <li class="list-group-item"
-                :key='index'
-                v-for="(brew, index) in brews"
+            <li
+                    @mouseover="mouseOver(index)"
+                    @mouseleave="mouseLeave(index)"
+                    :key='index'
+                    v-for="(brew, index) in brews"
+                    class="list-group-item"
 
             >{{brew.name}}, {{brew.state}}
             </li>
@@ -17,7 +20,15 @@
         name: "BrewList",
         props: {
             brews: Array
-        }
+        },
+        methods: {
+            mouseOver: function (index) {
+                this.$emit('mouse-over-brew', index)
+            },
+            mouseLeave: function (index) {
+                this.$emit('mouse-left-brew', index)
+            }
+        },
     }
 </script>
 

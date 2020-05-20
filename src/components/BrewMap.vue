@@ -14,7 +14,7 @@
                     :lat-lng="latLng(brew.latitude, brew.longitude)"
             >
                 <l-icon
-                        :icon-size="iconSize"
+                        :icon-size="brew.iconSize"
                         :icon-url="icon"
                 ></l-icon>
             </l-marker>
