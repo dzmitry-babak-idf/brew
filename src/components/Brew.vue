@@ -35,8 +35,7 @@
         mounted: function () {
             axios.get('https://api.openbrewerydb.org/breweries')
                 .then((r) => {
-                    this.brews = r.data
-                    console.log(r.data)
+                    this.brews = r.data.filter(r => r.state=='Arizona')
                 })
             //https://api.openbrewerydb.org/breweries
         }
