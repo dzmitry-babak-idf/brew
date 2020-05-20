@@ -1,8 +1,13 @@
 <template>
     <div class="row map">
+<!--        {{brews}}-->
         <l-map :zoom="zoom" :center="center">
             <l-tile-layer :url="url" :attribution="attribution"></l-tile-layer>
-            <l-marker :lat-lng="marker"></l-marker>
+            <l-marker
+                    :key="index"
+                    v-for="(brew, index) in brews"
+                    :lat-lng="latLng(brew.latitude, brew.longitude)"
+            ></l-marker>
         </l-map>
     </div>
 
@@ -14,12 +19,16 @@
 
     export default {
         name: "BrewMap",
+        props: {
+            brews: Array
+        },
         data: function () {
             return {
-                zoom: 16,
-                center: L.latLng(53.852056, 27.611501),
-                url: 'http://{s}.tile.osm.org/{z}/{x}/{y}.png',
-                attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
+                zoom: 3,
+                // center: L.latLng(53.852056, 27.611501),
+                center: L.latLng(58.383551,-116.01905),
+                url: 'https://tile.thunderforest.com/outdoors/{z}/{x}/{y}.png?apikey=ea703157e00f4d46819468d22e1418d9',
+                attribution: 'contributors',
                 marker: L.latLng(53.852056, 27.611501),
             }
         },
@@ -27,6 +36,11 @@
             LMap,
             LTileLayer,
             LMarker,
+        },
+        methods: {
+            latLng: function (lat, lng) {
+                return L.latLng(lat, lng)
+            }
         },
     }
 </script>

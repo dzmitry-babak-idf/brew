@@ -11,7 +11,7 @@
                 <BrewList :brews="brews"/>
             </div>
             <div class="col-6">
-                <BrewMap/>
+                <BrewMap :brews="brews"/>
             </div>
         </div>
         <!-- /.row -->
